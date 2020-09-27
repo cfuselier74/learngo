@@ -4,14 +4,13 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"unicode/utf8"
 )
 
 func main() {
 	msg := os.Args[1]
-	l := len(msg)
-	ex := strings.Repeat("!", l)
 
-	s := ex + strings.ToUpper(msg) + ex
+	s := msg + strings.Repeat("!", utf8.RuneCountInString(msg))
 
 	fmt.Println(s)
 }
